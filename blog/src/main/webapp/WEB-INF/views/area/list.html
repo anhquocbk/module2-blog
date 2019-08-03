@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Areas</title>
+</head>
+<body>
+<a href="/create-area">Create new area</a><br>
+<a href="/blogs">Back list blog</a>
+<h1>Areas</h1>
+<fieldset>
+    <legend>Area</legend>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <th:block th:each="area : ${areas}">
+            <tr>
+                <td th:text="${area.name}"></td>
+                <td><a th:href="@{/edit-area/__${area.id}__ }">Edit</a></td>
+                <td><a th:href="@{/delete-area/__${area.id}__ }">Delete</a></td>
+            </tr>
+        </th:block>
+    </table>
+</fieldset>
+</body>
+</html>
